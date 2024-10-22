@@ -35,7 +35,7 @@ Pull requests are welcome! Here’s how to get started:
 1. **Fork the Repository**: Click the fork button at the top right of the repository page.
 2. **Clone Your Fork**:
     ```bash
-    git clone https://github.com/u7663394/swm-help-tool.git
+    git clone https://github.com/your-username/swm-help-tool.git
     cd swm-help-tool
     ```
 3. **Create a Branch**:
