@@ -150,11 +150,46 @@ def add_meat():
     # Release the mouse button to put down the knife
     pyautogui.mouseUp()
 
+def add_ingredients():
+    """
+    Simulate adding cucumber, salt, juice, and sweet potato.
+    """
+    print("Adding cucumber, salt, juice, and sweet potato")
+    # Click on the character to open the ingredient menu
+    pyautogui.moveTo(248, 614, duration=0.2)
+    long_click(0)
+
+    time.sleep(0.2)
+    # Add cucumber
+    pyautogui.moveTo(412, 539, duration=0.1)  # Move to cucumber location
+    for _ in range(10):
+        long_click(0)  # Simulate clicking to collect
+    inventory[4] += 8
+    # Add salt
+    pyautogui.moveTo(412, 631, duration=0.1)  # Move to salt location
+    for _ in range(10):
+        long_click(0)
+    inventory[5] += 8
+    # Add juice
+    pyautogui.moveTo(423, 718, duration=0.1)  # Move to juice location
+    for _ in range(10):
+        long_click(0)
+    inventory[7] = 4
+    # Add sweet potato
+    pyautogui.moveTo(424, 807, duration=0.1)  # Move to sweet potato location
+    for _ in range(10):
+        long_click(0)
+    inventory[8] = 8
+    # Click on the character again to close the ingredient menu
+    pyautogui.moveTo(248, 614, duration=0.2)
+    long_click(0)
+
 print("Press the '1' key to start the preparation process...")
 print("Press the '2' key to start making a shawarma...")
 print("Press the '3' key to add meat...")
+print("Press the '4' key to add cucumber, salt, juice, and sweet potato...")
 
-# Main loop waiting for the '1', '2', or '3' key to start the respective processes
+# Main loop waiting for the '1', '2', '3', or '4' key to start the respective processes
 while True:
     if keyboard.is_pressed('1'):
         print("Starting the preparation process...")
@@ -170,4 +205,9 @@ while True:
         print("Adding meat...")
         add_meat()
         print("Meat added!")
+        time.sleep(1)  # Prevent repeated triggers
+    elif keyboard.is_pressed('4'):
+        print("Adding cucumber, salt, juice, and sweet potato...")
+        add_ingredients()
+        print("Ingredients added!")
         time.sleep(1)  # Prevent repeated triggers
