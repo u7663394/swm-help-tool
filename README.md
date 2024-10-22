@@ -14,6 +14,15 @@ Developed and maintained by **Guochen Wang**.
 - **Intelligent Inventory Management**: Monitors and updates inventory in real-time to ensure sufficient materials.
 - **Automated Cutting Operations**: Simulates mouse actions to automatically cut potatoes and meat, improving efficiency.
 - **Highly Customizable**: Users can adjust script parameters to suit different game requirements.
+- **Pre-configured Hotkeys**: During the game, the following hotkeys can be used for various automated tasks:
+  1. Press `1` to start pre-preparation tasks.
+  2. Press `2` to automatically make a shawarma.
+  3. Press `3` to automatically add meat.
+  4. Press `4` to automatically add other ingredients.
+
+## Usage
+
+Once installed, simply run the script, and use the pre-configured hotkeys during gameplay to automate your tasks as described in the **Features** section.
 
 ## Installation
 
