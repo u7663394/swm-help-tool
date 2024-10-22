@@ -132,10 +132,29 @@ def make_shawarma():
     pyautogui.moveTo(761, 866, duration=0.1)
     long_click(0)
 
+def add_meat():
+    """
+    Simulate adding meat by moving the mouse up and down over the meat area for a shorter duration.
+    """
+    print("Adding meat")
+    # Move to the knife location to pick it up
+    pyautogui.moveTo(386, 749, duration=0.1)
+    # Simulate picking up the knife
+    pyautogui.mouseDown()
+    time.sleep(0.2)
+    # Simulate the cutting motion by moving up and down repeatedly
+    for _ in range(50):
+        pyautogui.moveTo(450, 370, duration=0.1)  # Move to the top position
+        pyautogui.moveTo(450, 600, duration=0.1)  # Move to the bottom position
+        pyautogui.moveTo(450, 370, duration=0.1)  # Return to the top position
+    # Release the mouse button to put down the knife
+    pyautogui.mouseUp()
+
 print("Press the '1' key to start the preparation process...")
 print("Press the '2' key to start making a shawarma...")
+print("Press the '3' key to add meat...")
 
-# Main loop waiting for the '1' or '2' key to start the respective processes
+# Main loop waiting for the '1', '2', or '3' key to start the respective processes
 while True:
     if keyboard.is_pressed('1'):
         print("Starting the preparation process...")
@@ -146,4 +165,9 @@ while True:
         print("Starting to make shawarma...")
         make_shawarma()
         print("Shawarma completed!")
+        time.sleep(1)  # Prevent repeated triggers
+    elif keyboard.is_pressed('3'):
+        print("Adding meat...")
+        add_meat()
+        print("Meat added!")
         time.sleep(1)  # Prevent repeated triggers
