@@ -143,7 +143,7 @@ def add_meat():
     pyautogui.mouseDown()
     time.sleep(0.2)
     # Simulate the cutting motion by moving up and down repeatedly
-    for _ in range(50):
+    for _ in range(40):
         pyautogui.moveTo(450, 370, duration=0.1)  # Move to the top position
         pyautogui.moveTo(450, 600, duration=0.1)  # Move to the bottom position
         pyautogui.moveTo(450, 370, duration=0.1)  # Return to the top position
