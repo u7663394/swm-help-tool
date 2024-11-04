@@ -105,10 +105,7 @@ def make_shawarma():
     Simulate the process of making a shawarma.
     """
     print("Making shawarma")
-    # Step 1: Click on the bread
-    pyautogui.moveTo(605, 879, duration=0.1)
-    long_click(0)
-    # Step 2: Click on meat, cucumber, salt, and potato strips in sequence (each twice)
+    # Step 1: Click on meat, cucumber, salt, and potato strips in sequence (each twice)
     pyautogui.moveTo(513, 739, duration=0.1)
     long_click(0)
     long_click(0)
@@ -121,14 +118,12 @@ def make_shawarma():
     pyautogui.moveTo(965, 739, duration=0.01)
     long_click(0)
     long_click(0)
-    # Step 3: Roll the shawarma
+    # Step 2: Roll the shawarma
     pyautogui.moveTo(948, 915, duration=0.01)  # Start rolling
     pyautogui.mouseDown()
     pyautogui.moveTo(1148, 728, duration=0.5)  # Finish rolling (adjusted x position for better rolling)
     pyautogui.mouseUp()
-    # Wait before bagging
-    time.sleep(0.5)
-    # Step 4: Bag the shawarma
+    # Step 3: Bag the shawarma
     pyautogui.moveTo(761, 866, duration=0.1)
     long_click(0)
 
@@ -198,6 +193,7 @@ while True:
         time.sleep(1)  # Prevent repeated triggers
     elif keyboard.is_pressed('2'):
         print("Starting to make shawarma...")
+        make_shawarma()
         make_shawarma()
         print("Shawarma completed!")
         time.sleep(1)  # Prevent repeated triggers
