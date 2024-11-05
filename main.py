@@ -24,80 +24,44 @@ def cut_potato():
     # Move to the potato cutting area
     pyautogui.moveTo(1742, 711, duration=0.1)
     # Hold down the mouse button to simulate cutting
-    long_click(4)
+    long_click(3)
 
 def cut_meat():
     """
     Simulate cutting meat by moving the mouse up and down over the meat area.
     """
     print("Cutting meat")
-    # Check if the meat inventory is less than 3
-    if inventory[3] < 3:
-        # Move to the knife location to pick it up
-        pyautogui.moveTo(386, 749, duration=0.1)
-        # Simulate picking up the knife
-        pyautogui.mouseDown()
-        time.sleep(0.2)
-        # Simulate the cutting motion by moving up and down repeatedly
-        for _ in range(90):
-            pyautogui.moveTo(450, 370, duration=0.1)  # Move to the top position
-            pyautogui.moveTo(450, 600, duration=0.1)  # Move to the bottom position
-            pyautogui.moveTo(450, 370, duration=0.1)  # Return to the top position
-        # Release the mouse button to put down the knife
-        pyautogui.mouseUp()
-        # Update the meat inventory
-        inventory[3] += 8
-
-def gather_ingredients():
-    """
-    Simulate gathering various ingredients by clicking on their respective locations.
-    """
-    # Click on the character to open the ingredient menu
-    pyautogui.moveTo(248, 614, duration=0.2)
-    long_click(0)
-
+    # Move to the knife location to pick it up
+    pyautogui.moveTo(386, 749, duration=0.1)
+    # Simulate picking up the knife
+    pyautogui.mouseDown()
     time.sleep(0.2)
-    # Additional wait time if juice or sweet potato inventory is low
-    if inventory[7] < 2 or inventory[8] < 2:
-        time.sleep(0.6)
-    # Collect cucumber if inventory is low
-    if inventory[4] < 3:
-        print("Collecting cucumber")
-        pyautogui.moveTo(412, 539)  # Move to cucumber location
-        for _ in range(10):
-            long_click(0)  # Simulate clicking to collect
-        inventory[4] += 8
-    # Collect salt if inventory is low
-    if inventory[5] < 3:
-        print("Collecting salt")
-        pyautogui.moveTo(412, 631)  # Move to salt location
-        for _ in range(10):
-            long_click(0)
-        inventory[5] += 8
-    # Collect juice if inventory is low
-    if inventory[7] < 2:
-        print("Collecting juice")
-        pyautogui.moveTo(423, 718)  # Move to juice location
-        for _ in range(10):
-            long_click(0)
-        inventory[7] = 4
-    # Collect sweet potato if inventory is low
-    if inventory[8] < 2:
-        print("Collecting sweet potato")
-        pyautogui.moveTo(424, 807)  # Move to sweet potato location
-        for _ in range(10):
-            long_click(0)
-        inventory[8] = 8
-    # Click on the character again to close the ingredient menu
-    pyautogui.moveTo(248, 614, duration=0.2)
+    # Simulate the cutting motion by moving up and down repeatedly
+    for _ in range(80):
+        pyautogui.moveTo(450, 370, duration=0.1)  # Move to the top position
+        pyautogui.moveTo(450, 600, duration=0.1)  # Move to the bottom position
+        pyautogui.moveTo(450, 370, duration=0.1)  # Return to the top position
+    # Release the mouse button to put down the knife
+    pyautogui.mouseUp()
+
+def click_coke_machine():
+    pyautogui.moveTo(1341, 623, duration=0.01)
+    long_click(0)
+    pyautogui.moveTo(1410, 619, duration=0.01)
     long_click(0)
 
 def prepare():
     """
     Perform all preparation steps: gathering ingredients, cutting potatoes, and cutting meat.
     """
-    gather_ingredients()
+    pyautogui.moveTo(260, 557, duration=0.01)
+    long_click(0)
     cut_potato()
+    click_coke_machine()
+    pyautogui.moveTo(1549, 892, duration=0.01)
+    long_click(0)
+    long_click(0)
+    long_click(0)
     cut_meat()
 
 def make_shawarma():
@@ -183,7 +147,7 @@ def add_ingredients():
 print("Press the '1' key to start the preparation process...")
 print("Press the '2' key to start making a shawarma...")
 print("Press the '3' key to add meat...")
-print("Press the '4' key to add cucumber, salt, juice, and sweet potato...")
+print("Press the '4' key to  click coke machine..")
 
 # Main loop waiting for the '1', '2', '3', or '4' key to start the respective processes
 while True:
@@ -191,23 +155,23 @@ while True:
         print("Starting the preparation process...")
         prepare()
         print("Preparation completed!")
-        time.sleep(1)  # Prevent repeated triggers
+        time.sleep(0.7)  # Prevent repeated triggers
     elif keyboard.is_pressed('2'):
         print("Starting to make shawarma...")
         make_shawarma()
-        time.sleep(0.5)
+        time.sleep(0.3)
         make_shawarma()
         time.sleep(0.2)
         long_click(0)
         print("Shawarma completed!")
-        time.sleep(1)  # Prevent repeated triggers
+        time.sleep(0.7)  # Prevent repeated triggers
     elif keyboard.is_pressed('3'):
         print("Adding meat...")
         add_meat()
         print("Meat added!")
-        time.sleep(1)  # Prevent repeated triggers
+        time.sleep(0.7)  # Prevent repeated triggers
     elif keyboard.is_pressed('4'):
-        print("Adding cucumber, salt, juice, and sweet potato...")
-        add_ingredients()
-        print("Ingredients added!")
-        time.sleep(1)  # Prevent repeated triggers
+        print("Click coke machine")
+        click_coke_machine()
+        print("Machine clicked!")
+        time.sleep(0.7)  # Prevent repeated triggers
