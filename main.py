@@ -116,6 +116,10 @@ def main():
         elif keyboard.is_pressed('2'):
             print("Starting to make shawarma...")
             make_shawarma()
+            make_shawarma()
+            time.sleep(0.2)
+            pyautogui.moveTo(761, 866, duration=0.1)
+            long_click(0)
             print("Shawarma completed!")
             time.sleep(0.7)  # Prevent repeated triggers
         elif keyboard.is_pressed('3'):
