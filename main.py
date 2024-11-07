@@ -78,12 +78,8 @@ def make_shawarma():
     # Roll the shawarma
     pyautogui.moveTo(948, 915, duration=0.01)  # Start rolling
     pyautogui.mouseDown()
-    pyautogui.moveTo(1148, 728, duration=0.5)  # Finish rolling
+    pyautogui.moveTo(1148, 728, duration=0.3)  # Finish rolling
     pyautogui.mouseUp()
-    # Bag the shawarma
-    time.sleep(0.2)
-    pyautogui.moveTo(761, 866, duration=0.1)
-    long_click(0)
 
 def collect_money():
     """
@@ -116,6 +112,7 @@ def main():
         elif keyboard.is_pressed('2'):
             print("Starting to make shawarma...")
             make_shawarma()
+            time.sleep(0.2)
             make_shawarma()
             time.sleep(0.2)
             pyautogui.moveTo(761, 866, duration=0.1)
